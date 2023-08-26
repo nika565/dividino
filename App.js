@@ -1,25 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Display from './src/components/Display';
-import Teclado from './src/components/Teclado';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import Teclado from './src/components/Teclado/index';
+import Display from './src/components/Display/index';
 
-// Exibição principal do app
-export default function App() {
-
-  return (
-    <View style={estilos.container}>
-      <Display/>
-      <Teclado/>
+function App(){
+  return(
+    <View style={styles.screen}>
+      <Display />
+      <Teclado />
     </View>
-  );
-
+  )
 }
 
-// Estilização dos componentes principais do app
-const estilos = StyleSheet.create({
+const styles = StyleSheet.create({
+  screen:{
+    backgroundColor: "#604671",
+    width: "100%",
+    height: "100%",
 
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
-
 });
+
+export default App;
