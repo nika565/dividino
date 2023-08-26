@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Display from './src/components/Display';
+import Teclado from './src/components/Teclado';
 
+// Exibição principal do app
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={estilos.container}>
+      <Display/>
+      <Teclado/>
     </View>
   );
+
 }
 
-const styles = StyleSheet.create({
+// Estilização dos componentes principais do app
+const estilos = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+
 });
