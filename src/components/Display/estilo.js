@@ -1,34 +1,53 @@
-import { StyleSheet } from "react-native";
+import React from 'react';
+import {StyleSheet} from 'react-native';
+const estilo = StyleSheet.create({
+  display:{
+    backgroundColor: "#A075A0",
 
-// Estilo do display
-export const estilos = StyleSheet.create({
+    width: '90%',
+    height: '25%',
 
-    container: {
-        flex: 0.4,
-        backgroundColor: 'red',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
+    borderRadius: 10,
 
-    display: {
-        flex: 0.7,
-        marginTop: 35,
-        width: '90%',
-        backgroundColor: 'green',
-        borderRadius: 10,
-        padding: 20,
-        alignItems: 'flex-end',
-        gap: 50
-    },
+    elevation: 10, //Sombra para Android
 
-    expressao: {
-        fontSize: 24,
-        color: 'white'
-    },
+    // Sombra para IOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 }, // Deslocamento da sombra
+    shadowOpacity: 0.5, // Opacidade da sombra
+    shadowRadius: 4, // Raio da sombra
+  },
 
-    resultado: {
-        fontSize: 50,
-        color: 'white'
-    }
+  posicaoTexto:{
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+  },
 
+  operacao:{
+    width: '100%',
+    height: '30%',
+  },
+
+  resultado:{
+    width: '100%',
+    height: '70%',
+  },
+
+  texto:{
+    margin: 15,
+    fontFamily: 'ShortStack',
+  },
+
+  textoOperacao:{
+    fontSize: 17,
+    color: "#fff",
+  },
+
+  textoResultado:{
+    fontSize: 50,
+    color: "#604671",
+  }
 });
+
+export default estilo;

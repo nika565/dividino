@@ -1,26 +1,21 @@
-import { View, Text } from 'react-native';
-import { estilos } from './estilo';
-// Display que vai exibir os cálculos e seus resultados
-export default function Display(props) {
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import estilo from './estilo';
+import * as Font from 'expo-font';
 
-    return(
+const Display = () => {
+  useEffect(() => {
+    Font.loadAsync({
+      ShortStack: require('../../../assets/fonts/ShortStack.ttf'),
+    });
+  }, []);
 
-        // Container "pai" do display
-        <View style={estilos.container}>
-
-            {/* Dislpay onde vai ser exibido os cálculos e os resultados */}
-            <View style={estilos.display}>
-
-                {/* Expressão */}
-                <Text style={estilos.expressao}>450 + 500 + 1000</Text>
-                
-                {/* Mostrando o resultado */}
-                <Text style={estilos.resultado}>1950</Text>
-                
-            </View>
-
-        </View>
-
-    );
-
+  return(
+    <View style={estilo.display}>
+      <View style={[estilo.operacao, estilo.posicaoTexto]}><Text style={[estilo.textoOperacao, estilo.texto]}>450+500+1000</Text></View>
+      <View style={[estilo.resultado, estilo.posicaoTexto]}><Text style={[estilo.textoResultado, estilo.texto]}>1950</Text></View>
+    </View>
+  );
 }
+
+export default Display;

@@ -1,134 +1,104 @@
-import { View, Text, TouchableOpacity } from 'react-native';
-import { estilos } from './estilo';
-// Componente do teclado da calculadora
-export default function Teclado() {
+import React, {useEffect} from 'react';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import estilo from './estilo';
+import * as Font from 'expo-font';
 
-    return(
+const Teclado = () => {
+    useEffect(() => {
+    Font.loadAsync({
+      ShortStack: require('../../../assets/fonts/ShortStack.ttf'),
+    });
+  }, []);
 
-        // View para o teclado
-        <View style={estilos.containerTeclado}>
+  return(
+    <View style={estilo.areaBotao}>
+      <View style={estilo.linhaBotao}>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>C</Text>
+        </TouchableOpacity>
 
-            {/* Teclado em si */}
-            <View style={estilos.teclado}>
-                
-                {/* Botões do teclado */}
-                <TouchableOpacity style={estilos.botao}>
+        <TouchableOpacity style={[estilo.sinal, estilo.botao]}>
+          <Text style={estilo.texto}>√</Text>
+        </TouchableOpacity>
 
-                    <Text>C</Text>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>Back</Text>
+        </TouchableOpacity>
 
-                </TouchableOpacity>
+        <TouchableOpacity style={[estilo.sinal, estilo.botao]}>
+          <Text style={estilo.texto}>:</Text>
+        </TouchableOpacity>
+      </View>
 
-                <TouchableOpacity style={estilos.botao}>
+      <View style={estilo.linhaBotao}>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>9</Text>
+        </TouchableOpacity>
 
-                    <Text>Raiz</Text>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>8</Text>
+        </TouchableOpacity>
 
-                </TouchableOpacity>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>7</Text>
+        </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.botao}>
+        <TouchableOpacity style={[estilo.sinal, estilo.botao]}>
+          <Text style={estilo.texto}>x</Text>
+        </TouchableOpacity>
+      </View>
 
-                    <Text>apagar</Text>
+      <View style={estilo.linhaBotao}>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>6</Text>
+        </TouchableOpacity>
 
-                </TouchableOpacity>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>5</Text>
+        </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.botao}>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>4</Text>
+        </TouchableOpacity>
 
-                    <Text>/</Text>
+        <TouchableOpacity style={[estilo.sinal, estilo.botao]}>
+          <Text style={estilo.texto}>-</Text>
+        </TouchableOpacity>
+      </View>
 
-                </TouchableOpacity>
+      <View style={estilo.linhaBotao}>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>3</Text>
+        </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.botao}>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>2</Text>
+        </TouchableOpacity>
 
-                    <Text>7</Text>
+        <TouchableOpacity style={[estilo.numero, estilo.botao]}>
+          <Text style={estilo.texto}>1</Text>
+        </TouchableOpacity>
 
-                </TouchableOpacity>
+        <TouchableOpacity style={[estilo.sinal, estilo.botao]}>
+          <Text style={estilo.texto}>+</Text>
+        </TouchableOpacity>
+      </View>
 
-                <TouchableOpacity style={estilos.botao}>
+      <View style={estilo.linhaBotao}>
+        <TouchableOpacity style={estilo.zero}>
+          <Text style={estilo.texto}>0</Text>
+        </TouchableOpacity>
 
-                    <Text>8</Text>
+        <TouchableOpacity style={[estilo.sinal, estilo.botao]}>
+          <Text style={estilo.texto}>.</Text>
+        </TouchableOpacity>
 
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>9</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>X</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>4</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>5</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>6</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>-</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>1</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>2</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>3</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>+</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.zero}>
-
-                    <Text>0</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>.</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.botao}>
-
-                    <Text>=</Text>
-
-                </TouchableOpacity>
-            </View>
-
-        </View>
-
-    );
-
+        <TouchableOpacity style={[estilo.sinal, estilo.botao]}>
+          <Text style={estilo.texto}>=</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 }
+
+export default Teclado;
