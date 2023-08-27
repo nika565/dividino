@@ -1,28 +1,22 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Teclado from './src/components/Teclado/index';
-import Display from './src/components/Display/index';
+import { StyleSheet, Text, View } from 'react-native';
+import Display from './src/components/Display';
+import Calculadora from './src/components/Calculadora';
 
-function App(){
-  return(
-    <View style={styles.screen}>
-      <Display />
-      <Teclado />
+// Exibição principal do app
+export default function App() {
+
+  return (
+    <View style={estilos.container}>
+      <Calculadora/>
     </View>
-  )
+
+  );
 }
 
-const styles = StyleSheet.create({
-  screen:{
+const estilos = StyleSheet.create({
+  container:{
     backgroundColor: "#604671",
     width: "100%",
     height: "100%",
-
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
   },
 });
-
-export default App;
