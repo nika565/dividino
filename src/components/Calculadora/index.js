@@ -5,34 +5,81 @@ import Display from '../Display/index';
 
 // Componente do teclado da calculadora
 export default function Calculadora() {
+
+  // Manipulando o estado da expressão conforme a digitação do usuário
   const [expressao, setExpressao] = useState('');
 
+  // Manipulando o resultado a ser exibido na tela
+  const [resultado, setResultado] = useState('');
+
+  // Função para concatenar a expressão digitada pelo usuário
   function concatenar(valor) {
+    
+    // Construindo a expressão 
     setExpressao(expressao + valor);
+
+    // Limpando o resultado
+    setResultado('');
   }
 
-  function apagar() {
+  // Função para apagar completamente a minha expressão
+  function apagarTudo() {
     setExpressao('');
+    setResultado('');
+  }
+
+  // Pagar elemento por elemento
+  function apagar() {
+    setExpressao(expressao.slice(0, -1));
+  }
+
+  // Função para calcular
+  function calcular(expressao) {
+
+    // Verificando se possuí valor indefinido ou vazio
+    if (typeof(expressao) === 'undefined' || expressao == '') expressao = '0'
+
+    // Caso 
+    if (eval(expressao) == 'Infinity') {
+      setResultado('Operação indisponível');
+      setExpressao('');
+    } else {
+      setResultado(eval(expressao));
+      setExpressao('');
+    }
+  }
+
+  function raizQuadrada(numero) {
+
+    // Verificando se possuí valor indefinido ou vazio
+    if (typeof(numero) === 'undefined' || numero == '') numero = '0'
+
+    // Possível operação
+    const operacao = Number(eval(numero))
+
+    setExpressao('');
+    setResultado(Math.sqrt(operacao));
+
   }
 
   return (
     <View style={estilos.calculadora}>
-      <Display expressao={expressao} />
+      <Display expressao={expressao} resultado={resultado} />
 
       {/* View para o teclado */}
       <View style={estilos.teclado}>
         {/* Botões do teclado */}
         <TouchableOpacity
-          onPress={() => apagar()}
+          onPress={() => apagarTudo()}
           style={[estilos.botao, estilos.sinal]}>
           <Text style={estilos.texto}>C</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[estilos.botao, estilos.sinal]}>
+        <TouchableOpacity onPress={() => raizQuadrada(expressao)} style={[estilos.botao, estilos.sinal]}>
           <Text style={estilos.texto}>√</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[estilos.botao, estilos.sinal]}>
+        <TouchableOpacity onPress={() => apagar()} style={[estilos.botao, estilos.sinal]}>
           <Text style={estilos.texto}>Back</Text>
         </TouchableOpacity>
 
@@ -118,11 +165,11 @@ export default function Calculadora() {
           <Text style={estilos.texto}>0</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>.</Text>
+        <TouchableOpacity onPress={() => concatenar('.')} style={[estilos.botao, estilos.sinal]}>
+          <Text style={estilos.texto}>,</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[estilos.botao, estilos.sinal]}>
+        <TouchableOpacity onPress={() => calcular(expressao)} style={[estilos.botao, estilos.sinal]}>
           <Text style={estilos.texto}>=</Text>
         </TouchableOpacity>
       </View>

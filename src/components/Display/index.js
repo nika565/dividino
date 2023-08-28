@@ -7,6 +7,7 @@ export default function Display(props) {
     <View style={estilos.container}>
       {/* Dislpay onde vai ser exibido os cálculos e os resultados */}
       <View style={estilos.display}>
+        
         {/* Expressão */}
         <View style={estilos.expressao}>
           <Text style={estilos.textoExpressao}>{props.expressao}</Text>
@@ -14,7 +15,7 @@ export default function Display(props) {
 
         {/* Mostrando o resultado */}
         <View style={estilos.resultado}>
-          <Text style={estilos.textoResultado}>1950</Text>
+          <Text style={estilos.textoResultado}>{props.resultado}</Text>
         </View>
       </View>
     </View>

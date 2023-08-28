@@ -40,7 +40,7 @@ export const estilos = StyleSheet.create({
   },
 
   textoExpressao: {
-    fontSize: 24,
+    fontSize: 30,
     color: 'white',
 
     margin: 10,
@@ -51,7 +51,7 @@ export const estilos = StyleSheet.create({
   },
 
   textoResultado: {
-    fontSize: 50,
+    fontSize: 30,
     color: '#604671',
 
     margin: 10,
