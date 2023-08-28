@@ -9,7 +9,9 @@ export const estilos = StyleSheet.create({
     alignSelf: 'center',
 
     width: '90%',
-    height: '25%',
+    height: '30%',
+
+    marginTop: -50,
   },
 
   display: {
