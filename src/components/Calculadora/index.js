@@ -14,7 +14,7 @@ export default function Calculadora() {
 
   // Função para concatenar a expressão digitada pelo usuário
   function concatenar(valor) {
-    
+
     // Construindo a expressão 
     setExpressao(expressao + valor);
 
@@ -28,18 +28,31 @@ export default function Calculadora() {
     setResultado('');
   }
 
-  // Pagar elemento por elemento
+  // Apaggar um único elemento
   function apagar() {
     setExpressao(expressao.slice(0, -1));
   }
 
+  function verificaOperadoresIguais(expressao) {
+  const regex = /([+\-*/])\1/;
+  return !regex.test(expressao);
+}
+
   // Função para calcular
   function calcular(expressao) {
 
-    // Verificando se possuí valor indefinido ou vazio
-    if (typeof(expressao) === 'undefined' || expressao == '') expressao = '0'
+    // Verificando se a expressão termina com algum símbolo ou não está definida
+    if (/[+\/*-.]/.test(expressao.slice(-1)) || typeof (expressao) === 'undefined' || expressao === '') {
+      setExpressao('');
+      setResultado('Inválido...');
+      return;
+    } else if (!verificaOperadoresIguais(expressao)) {
+      setExpressao('');
+      setResultado('Inválido...');
+      return;
+    }
 
-    // Caso 
+    // Caso ocorra divisão por zero
     if (eval(expressao) == 'Infinity') {
       setResultado('Operação indisponível');
       setExpressao('');
@@ -47,18 +60,25 @@ export default function Calculadora() {
       setResultado(eval(expressao));
       setExpressao('');
     }
+
   }
 
+  // Função dedicada a fazer raiz quadrada
   function raizQuadrada(numero) {
 
-    // Verificando se possuí valor indefinido ou vazio
-    if (typeof(numero) === 'undefined' || numero == '') numero = '0'
+    // Verificando se a expressão termina com algum símbolo ou não está definida
+    if (/[+\/*-.]/.test(expressao.slice(-1)) || typeof (expressao) === 'undefined' || expressao === '') {
+      setExpressao('');
+      setResultado('Inválido...');
+      return;
+    } else {
 
-    // Possível operação
-    const operacao = Number(eval(numero))
+      // Possível operação
+      const operacao = Number(eval(numero))
+      setExpressao('');
+      setResultado(Math.sqrt(operacao));
 
-    setExpressao('');
-    setResultado(Math.sqrt(operacao));
+    }
 
   }
 
