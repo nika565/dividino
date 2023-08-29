@@ -17,17 +17,15 @@ export const estilos = StyleSheet.create({
   display: {
     display: 'flex',
     alignSelf: 'center',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    flexDirection: 'column',
-    paddingRight: 20,
+    // alignItems: 'flex-end',
+    // justifyContent: 'flex-end',
+    // flexDirection: 'column',
+
+    // paddingRight: 20,
 
     width: '100%',
     height: '100%',
-
-    backgroundColor: '#A075A0',
-
-    borderRadius: 10,
+    
     elevation: 10, //Sombra para Android
 
     // Sombra para IOS
@@ -37,13 +35,24 @@ export const estilos = StyleSheet.create({
     shadowRadius: 4, // Raio da sombra
   },
 
+  gradiente:{
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
+    
+    width: "100%",
+    height: "100%",
+
+    borderRadius: 10,
+  },
+
   expressao: {
     display: 'flex',
     height: '30%',
   },
 
   textoExpressao: {
-    fontSize: 35,
+    fontSize: 30,
     color: 'white',
 
     margin: 10,

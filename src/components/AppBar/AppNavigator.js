@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import TelaCalculadora from '../../Pages/TelaCalculadora';
-import TelaTemperatura from '../../Pages/TelaTemperatura';
-import TelaMedida from '../../Pages/TelaMedida';
+import TelaCalculadora from '../../Pages/TelaCalculadora/index';
+import TelaTemperatura from '../../Pages/TelaTemperatura/index';
+import TelaMedida from '../../Pages/TelaMedida/index';
 
 const Stack = createStackNavigator();
 
@@ -14,16 +14,24 @@ function AppNavigator(){
                                                                             headerStyle: {
                                                                                 backgroundColor: 'rgb(255, 255, 255,0)',
                                                                                 height: 25,
-                                                                            }}}
+                                                                            },
+                                                                            headerShown: false,}}
             />
             <Stack.Screen name='Temperatura' component={ TelaTemperatura } options={{
                                                                             title: '',
                                                                             headerStyle: {
                                                                                 backgroundColor: 'rgb(255, 255, 255,0)',
                                                                                 height: 25,
-                                                                            }}}
+                                                                            },
+                                                                            headerShown: false,}}
             />
-            <Stack.Screen name='Medida' component={ TelaMedida } />
+            <Stack.Screen name='Medida' component={ TelaMedida } options={{
+                                                                    title: '',
+                                                                    headerStyle: {
+                                                                        backgroundColor: 'rgb(255, 255, 255,0)',
+                                                                        height: 25,
+                                                                    },
+                                                                    headerShown: false,}}/>
         </Stack.Navigator>
     );
 }

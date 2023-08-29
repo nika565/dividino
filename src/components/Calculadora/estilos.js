@@ -23,11 +23,6 @@ export const estilos = StyleSheet.create({
     width: '20%',
     height: '20%',
 
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    borderRadius: 3,
-
     elevation: 10, //Sombra para Android
 
     // Sombra para IOS
@@ -37,12 +32,19 @@ export const estilos = StyleSheet.create({
     shadowRadius: 4, // Raio da sombra
   },
 
-  numero: {
-    backgroundColor: '#A290BC',
+  iconeBotao:{
+    width: '50%',
+    height: '65%',
   },
 
-  sinal: {
-    backgroundColor: '#646494',
+  gradiente:{
+    width: "100%",
+    height: "100%",
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    borderRadius: 3,
   },
 
   zero: {
@@ -51,10 +53,6 @@ export const estilos = StyleSheet.create({
 
     alignItems: 'center',
     justifyContent: 'center',
-
-    backgroundColor: '#A290BC',
-
-    borderRadius: 3,
 
     elevation: 10, //Sombra para Android
 

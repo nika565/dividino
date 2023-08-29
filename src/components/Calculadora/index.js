@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { estilos } from './estilos';
 import Display from '../Display/index';
+import { LinearGradient } from 'expo-linear-gradient';
 
 // Componente do teclado da calculadora
 export default function Calculadora() {
@@ -91,106 +92,144 @@ export default function Calculadora() {
         {/* Botões do teclado */}
         <TouchableOpacity
           onPress={() => apagarTudo()}
-          style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>C</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#AD5E00', '#8A1A35']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Image source={require('../../../assets/icon/meteoro.png')} style={estilos.iconeBotao} />
+            </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => raizQuadrada(expressao)} style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>√</Text>
+        <TouchableOpacity onPress={() => raizQuadrada(expressao)} style={estilos.botao}>
+          <LinearGradient colors={['#614387', '#646494']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+            <Text style={estilos.texto}>√</Text>
+          </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => apagar()} style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>Back</Text>
+        <TouchableOpacity onPress={() => apagar()} style={estilos.botao}>
+            <LinearGradient colors={['#8A6300', '#593335']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Image source={require('../../../assets/icon/fossil.png')} style={estilos.iconeBotao} />
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('/')}
-          style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>:</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#646494']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>:</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('7')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>7</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>7</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('8')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>8</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>8</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('9')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>9</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>9</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('*')}
-          style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>x</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#646494']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>x</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('4')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>4</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>4</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('5')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>5</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>5</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('6')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>6</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>6</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('-')}
-          style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>-</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#646494']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>-</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('1')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>1</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>1</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('2')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>2</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>2</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('3')}
-          style={[estilos.botao, estilos.numero]}>
-          <Text style={estilos.texto}>3</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>3</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => concatenar('+')}
-          style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>+</Text>
+          style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#646494']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>+</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => concatenar('0')} style={estilos.zero}>
-          <Text style={estilos.texto}>0</Text>
+          <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>0</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => concatenar('.')} style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>,</Text>
+        <TouchableOpacity onPress={() => concatenar('.')} style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#646494']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>,</Text>
+            </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => calcular(expressao)} style={[estilos.botao, estilos.sinal]}>
-          <Text style={estilos.texto}>=</Text>
+        <TouchableOpacity onPress={() => calcular(expressao)} style={estilos.botao}>
+            <LinearGradient colors={['#614387', '#646494']} start={{ x: 1, y: 0 }} style={estilos.gradiente}>
+              <Text style={estilos.texto}>=</Text>
+            </LinearGradient>
         </TouchableOpacity>
       </View>
     </View>
