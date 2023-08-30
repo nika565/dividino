@@ -4,37 +4,32 @@ import { View, KeyboardAvoidingView, TextInput, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import estilos from "./estilos";
 
-function ConversorTemperatura(){
-
-    // Variáveis do useState para manipular a seleção do dropdown
+function ConversorTemperatura() {
     const [areaConversao, setAreaConversao] = useState('Graus Celsius (°C)');
     const [areaConversao2, setAreaConversao2] = useState('Graus Fahrenheit (°F)');
+    const [textoConversao, setTextoConversao] = useState('');
+    const [textoConversao2, setTextoConversao2] = useState('');
 
-    // Variáveis do useState para manipular o resultado da conversão
-    const [textoConversao, setTextoConversao] = useState(null);
-    const [textoConversao2, setTextoConversao2] = useState(null);
-
-    
-    
-    // Função para converter em realação ao primeiro input
     function converter(texto) {
+        setTextoConversao(texto);
         
-        // Verificando a escala de temperatura selecionada
-        if (areaConversao == areaConversao2) {
+        if (areaConversao === areaConversao2) {
+            console.log(texto);
             setTextoConversao2(texto);
-        } 
-
+        } else {
+            // Realizar a conversão
+        }
     }
 
-    // Função para converter em realação ao segundo input
     function converterReverso(texto) {
-
-        // Verificando a escala de temperatura selecionada
-        // Verificando a escala de temperatura selecionada
-        if (areaConversao == areaConversao2) {
+        setTextoConversao2(texto);
+        
+        if (areaConversao2 === areaConversao) {
+            console.log(texto);
             setTextoConversao(texto);
-        } 
-
+        } else {
+            // Realizar a conversão reversa
+        }
     }
 
     return (
@@ -42,9 +37,9 @@ function ConversorTemperatura(){
             <View style={estilos.container}>
                 <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradienteDropdown}>
                     <Picker selectedValue={areaConversao} onValueChange={(itemValor) => setAreaConversao(itemValor)} style={estilos.dropdown}>
-                            <Picker.Item label="Graus Celsius (°C)" value="Graus Celsius (°C)"/>
-                            <Picker.Item label="Kelvin (K)" value="Kelvin (K)"/>
-                            <Picker.Item label="Graus Fahrenheit (°F)" value="Graus Fahrenheit (°F)"/>
+                        <Picker.Item label="Graus Celsius (°C)" value="Graus Celsius (°C)"/>
+                        <Picker.Item label="Kelvin (K)" value="Kelvin (K)"/>
+                        <Picker.Item label="Graus Fahrenheit (°F)" value="Graus Fahrenheit (°F)"/>
                     </Picker>
                 </LinearGradient>
 
@@ -58,9 +53,9 @@ function ConversorTemperatura(){
             <View style={estilos.container}>
                 <LinearGradient colors={['#614387', '#A290BC']} start={{ x: 1, y: 0 }} style={estilos.gradienteDropdown}>
                     <Picker selectedValue={areaConversao2} onValueChange={(itemValor) => setAreaConversao2(itemValor) } style={estilos.dropdown}>
-                    <Picker.Item label="Graus Celsius (°C)" value="Graus Celsius (°C)"/>
-                            <Picker.Item label="Kelvin (K)" value="Kelvin (K)"/>
-                            <Picker.Item label="Graus Fahrenheit (°F)" value="Graus Fahrenheit (°F)"/>
+                        <Picker.Item label="Graus Celsius (°C)" value="Graus Celsius (°C)"/>
+                        <Picker.Item label="Kelvin (K)" value="Kelvin (K)"/>
+                        <Picker.Item label="Graus Fahrenheit (°F)" value="Graus Fahrenheit (°F)"/>
                     </Picker>
                 </LinearGradient>
 
