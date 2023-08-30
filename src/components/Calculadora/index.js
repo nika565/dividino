@@ -44,22 +44,30 @@ export default function Calculadora() {
 
     // Verificando se a expressão termina com algum símbolo ou não está definida
     if (/[+\/*-.]/.test(expressao.slice(-1)) || typeof (expressao) === 'undefined' || expressao === '') {
+      
       setExpressao('');
       setResultado('Inválido...');
-      return;
+  
     } else if (!verificaOperadoresIguais(expressao)) {
+      // Verifica se existem operadores iguais
       setExpressao('');
       setResultado('Inválido...');
-      return;
-    }
-
-    // Caso ocorra divisão por zero
-    if (eval(expressao) == 'Infinity') {
-      setResultado('Operação indisponível');
+      
+    } else if (expressao[0] === '/' || expressao[0] === '*') {
+      // Verifica se o primeiro elemento é algum sinal que pode dar falha no programa
       setExpressao('');
+      setResultado('Inválido...');
+
+    } else if (eval(expressao) == 'Infinity') {
+      // Caso aconteça alguma divisão por zero
+      setResultado('Impossível dividir por zero.');
+      setExpressao('');
+
     } else {
+      // Caso passe em todas as validações será feita a expressão e exibida na tela
       setResultado(eval(expressao));
       setExpressao('');
+
     }
 
   }
