@@ -5,30 +5,186 @@ import { LinearGradient } from "expo-linear-gradient";
 import estilos from "./estilos";
 
 function ConversorTemperatura() {
+    
+    // Variáveis useState para alterar o valor do Picker
     const [areaConversao, setAreaConversao] = useState('Graus Celsius (°C)');
     const [areaConversao2, setAreaConversao2] = useState('Graus Fahrenheit (°F)');
+
+    // Variáveis useState para alterar o valor dos inputs
     const [textoConversao, setTextoConversao] = useState('');
     const [textoConversao2, setTextoConversao2] = useState('');
 
+    // Função para realizar a conversao e mostrar no segundo input
     function converter(texto) {
+
         setTextoConversao(texto);
         
+        // Condicionais para saber qual cálculo será realizado
         if (areaConversao === areaConversao2) {
-            console.log(texto);
+
+            // Caso o picker estiver com os valores iguais será replicado a mesma temperatura nos dois inputs
             setTextoConversao2(texto);
+
+        } else if (areaConversao === 'Graus Celsius (°C)' && areaConversao2 === 'Kelvin (K)') {
+
+            // Conversão Celsius para Kelvin
+            const kelvin = Number(texto) + 273.15
+
+            // Caso retorne algo inválido
+            if (isNaN(kelvin)) {
+                setTextoConversao2('Operação inválida...')
+            } else {
+                setTextoConversao2(kelvin.toString());
+            }
+            
+        } else if (areaConversao === 'Graus Celsius (°C)' && areaConversao2 === 'Graus Fahrenheit (°F)') {
+            
+            // Conversão Celsius para Fahrenheit
+            const fahrenheit = (Number(texto) * 9/5) + 32
+            
+            // Caso retorne algo inválido
+            if (isNaN(fahrenheit)) {
+                setTextoConversao2('Operação inválida...')
+            } else {
+                setTextoConversao2(fahrenheit.toString());
+            }
+
+        } else if (areaConversao === 'Kelvin (K)' && areaConversao2 === 'Graus Fahrenheit (°F)') {
+
+            // Conversão Kelvin para Fahrenheit
+            //fahrenheit = (Kelvin - 273.15) * 9/5 + 32
+            const fahrenheit = (Number(texto) - 273.15) * 9/5 + 32
+            
+            // Caso retorne algo inválido
+            if (isNaN(fahrenheit)) {
+                setTextoConversao2('Operação inválida...')
+            } else {
+                setTextoConversao2(fahrenheit.toString());
+            }
+
+        } else if (areaConversao === 'Kelvin (K)' && areaConversao2 === 'Graus Celsius (°C)') {
+
+            // Conversão de Kelvin para Celsius
+            const celsius = Number(texto) - 273.15
+            
+            // Caso retorne algo inválido
+            if (isNaN(celsius)) {
+                setTextoConversao2('Operação inválida...')
+            } else {
+                setTextoConversao2(celsius.toString());
+            }
+
+        } else if (areaConversao === 'Graus Fahrenheit (°F)' && areaConversao2 === 'Graus Celsius (°C)') {
+            
+            // Conversão de Fahrenheit para Celsius
+            const celsius = (Number(texto) - 32) * 5/9
+            
+            // Caso retorne algo inválido
+            if (isNaN(celsius)) {
+                setTextoConversao2('Operação inválida...')
+            } else {
+                setTextoConversao2(celsius.toString());
+            }
+
         } else {
-            // Realizar a conversão
+
+            // Conversão de Fahrenheit para Kelvin
+            // Kelvin = (Fahrenheit - 32) * 5/9 + 273.15
+            const kelvin = (Number(texto) -32) *5/9 + 273.15
+            
+            // Caso retorne algo inválido
+            if (isNaN(kelvin)) {
+                setTextoConversao2('Operação inválida...')
+            } else {
+                setTextoConversao2(kelvin.toString());
+            }
+
         }
     }
 
+    // Função para realizar a conversao e mostrar no Primeiro input
     function converterReverso(texto) {
+
         setTextoConversao2(texto);
         
+        // Condicionais para saber qual cálculo será realizado
         if (areaConversao2 === areaConversao) {
             console.log(texto);
             setTextoConversao(texto);
+        } else if (areaConversao2 === 'Graus Celsius (°C)' && areaConversao === 'Kelvin (K)') {
+
+            // Conversão Celsius para Kelvin
+            const kelvin = Number(texto) + 273.15
+
+            // Caso retorne algo inválido
+            if (isNaN(kelvin)) {
+                setTextoConversao('Operação inválida...')
+            } else {
+                setTextoConversao(kelvin.toString());
+            }
+            
+        } else if (areaConversao2 === 'Graus Celsius (°C)' && areaConversao === 'Graus Fahrenheit (°F)') {
+
+            // Conversão Celsius para Fahrenheit
+            const fahrenheit = (Number(texto) * 9/5) + 32
+            
+            // Caso retorne algo inválido
+            if (isNaN(fahrenheit)) {
+                setTextoConversao('Operação inválida...')
+            } else {
+                setTextoConversao(fahrenheit.toString());
+            }
+
+        } else if (areaConversao2 === 'Kelvin (K)' && areaConversao === 'Graus Fahrenheit (°F)') {
+
+            // Conversão Kelvin para Fahrenheit
+            //fahrenheit = (Kelvin - 273.15) * 9/5 + 32
+            const fahrenheit = (Number(texto) - 273.15) * 9/5 + 32
+            
+            // Caso retorne algo inválido
+            if (isNaN(fahrenheit)) {
+                setTextoConversao('Operação inválida...')
+            } else {
+                setTextoConversao(fahrenheit.toString());
+            }
+
+        } else if (areaConversao2 === 'Kelvin (K)' && areaConversao === 'Graus Celsius (°C)') {
+
+            // Conversão de Kelvin para Celsius
+            const celsius = Number(texto) - 273.15
+            
+            // Caso retorne algo inválido
+            if (isNaN(celsius)) {
+                setTextoConversao('Operação inválida...')
+            } else {
+                setTextoConversao(celsius.toString());
+            }
+
+        } else if (areaConversao2 === 'Graus Fahrenheit (°F)' && areaConversao === 'Graus Celsius (°C)') {
+
+            // Conversão de Fahrenheit para Celsius
+            const celsius = (Number(texto) - 32) * 5/9
+            
+            // Caso retorne algo inválido
+            if (isNaN(celsius)) {
+                setTextoConversao('Operação inválida...')
+            } else {
+                setTextoConversao(celsius.toString());
+            }
+
         } else {
-            // Realizar a conversão reversa
+
+            // Conversão de Fahrenheit para Kelvin
+            // Kelvin = (Fahrenheit - 32) * 5/9 + 273.15
+            const kelvin = (Number(texto) -32) *5/9 + 273.15
+            
+            // Caso retorne algo inválido
+            if (isNaN(kelvin)) {
+                setTextoConversao('Operação inválida...')
+            } else {
+                setTextoConversao(kelvin.toString());
+            }
+
         }
     }
 
