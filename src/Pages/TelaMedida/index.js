@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {View, TouchableOpacity, Image } from 'react-native';
 import ConversorMedida from "../../components/ConversorMedida/index";
 import estilos from "./estilos";
 

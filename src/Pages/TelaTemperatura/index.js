@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {View, TouchableOpacity, Image } from 'react-native';
 import ConversorTemperatura from "../../components/ConversorTemperatura/index";
 import estilos from "./estilos";
 

@@ -17,11 +17,6 @@ export const estilos = StyleSheet.create({
   display: {
     display: 'flex',
     alignSelf: 'center',
-    // alignItems: 'flex-end',
-    // justifyContent: 'flex-end',
-    // flexDirection: 'column',
-
-    // paddingRight: 20,
 
     width: '100%',
     height: '100%',
@@ -52,7 +47,7 @@ export const estilos = StyleSheet.create({
   },
 
   textoExpressao: {
-    fontSize: 30,
+    fontSize: 20,
     color: 'white',
 
     margin: 10,
