@@ -30,19 +30,10 @@ React Native CLI - Configurado de acordo com seu sistema operacional e plataform
 ## Instalação
 Siga estas etapas para configurar o projeto DiviDino em sua máquina:
 
-<li> Clone este repositório: </li>
-
-
-git clone https://github.com/seu-usuario/dividino-calculadora-react-native.git
-Navegue até o diretório do projeto:
-
-
+<li> Clone este repositório: git clone https://github.com/seu-usuario/dividino-calculadora-react-native.git </li>
+<li> Navegue até o diretório do projeto: </li>
 cd dividino-calculadora-react-native
-Instale as dependências do projeto:
 
-
-npm install
-# ou
-yarn install
-
+<li> Instale as dependências do projeto: </li>
+npm install / yarn install
 npx react-native run-android
