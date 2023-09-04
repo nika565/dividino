@@ -32,9 +32,8 @@ Siga estas etapas para configurar o projeto DiviDino em sua máquina:
 
 <li> Clone este repositório: <i> git clone https://github.com/seu-usuario/dividino-calculadora-react-native.git </i> </li>
 
-<li> Navegue até o diretório do projeto: </li>
-cd dividino-calculadora-react-native
+<li> Navegue até o diretório do projeto: <i> cd dividino-calculadora-react-native </i> </li>
 
 <li> Instale as dependências do projeto: </li>
-npm install / yarn install
-npx react-native run-android
+     <i> npm install / yarn install<br>
+     npx react-native run-android </i>
